@@ -13,8 +13,7 @@ export const DateProvider = ({ children }) => {
   const [meetTime, setMeetTime] = useState({
     selectedTime: '',
   });
-  console.log(selectedDateInfo);
-  console.log(meetTime);
+  selectedDateInfo;
 
   const value = {
     selectedDateInfo,
