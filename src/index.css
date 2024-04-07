@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.day {
+  text-align: center;
+  padding: 4px;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.day:hover {
+  background-color: #f0f0f0;
+  color: #3b82f6;
+}
+
+.btn {
+  color: #3b82f6;
+  background: transparent;
+  transition: 0.3s linear;
+  border-radius: 50%;
+}
+
+.btn:hover {
+  background-color: #3b82f6;
+  border: none;
+  outline: none;
+  color: #f0f0f0;
+}
+
+.calendar-container {
+  width: 100%; /* Set your desired width */
+  height: 100%; /* Set your desired height */
+}
+
+.time {
+  transition: linear 0.3s;
+  cursor: pointer;
+}
+
+.time:hover {
+  background-color: #3b82f6;
+  color: #f0f0f0;
+}
