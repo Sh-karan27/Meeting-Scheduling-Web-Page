@@ -181,10 +181,12 @@ const Calendar = () => {
   return (
     <div
       className={`${
-        onSelect ? 'w-[45rem]' : 'w-[25rem]'
-      } flex items-center justify-between `}>
+        onSelect
+          ? 'w-[45rem] max-lg:w-[30rem] max-lg:flex-col max-lg:overflow-y-scroll'
+          : 'w-[25rem]'
+      }   flex items-center justify-betwee  h-[500px]  max-sm:flex-col max-sm:w-[25rem] max-sm:h-full `}>
       <div
-        className={` ${hideCalender} w-[25rem]  calendar p-4 border-l border-gray-300  flex flex-col  justify-center items-center gap-5`}>
+        className={` ${hideCalender} w-[25rem]  calendar p-4  border-gray-300  flex flex-col  justify-center items-center gap-5 max-sm:border-none`}>
         <h1 className='font-bold'>Select a Date and Time</h1>
         <div className='flex justify-between items-center mb-4 w-full'>
           <button onClick={handlePrevMonth} className='btn text-3xl'>

@@ -8,14 +8,16 @@ import { GiEarthAmerica } from 'react-icons/gi';
 const FiberyDemo = () => {
   const { selectedDateInfo, meetTime } = useDate();
   return (
-    <section className=' min-h-[500px] flex flex-col justify-between border-r'>
-      <div className='flex flex-col items-center justify-between w-full h-full p py-5'>
-        <div className=' flex items-center justify-center w-full h-full'>
+    <section className='  flex flex-col justify-between border-r'>
+      <div className='flex flex-col items-center justify-between w-full h-full  py-5'>
+        <div className=' flex items-center justify-center w-full '>
           <img src={Logo} alt='logo' className='max-h-[120px] pb-[15px]' />
         </div>
 
-        <div className='flex flex-col  gap-5 border-t justify-center w-[250px] h-[400px] px-5'>
-          <h1 className='text-3xl font-semibold'>Fibery Demo</h1>
+        <div className='flex flex-col  gap-5 border-t justify-center w-[250px] max-md:w-full h-[400px] px-5 max-sm:w-full'>
+          <h1 className='text-3xl font-semibold max-sm:text-center'>
+            Fibery Demo
+          </h1>
           <div className='flex flex-col items-start justify-start gap-2 font-semibold'>
             <p className='flex items-center justify-center gap-1 text-md text-gray-400 font-normal'>
               <CiClock1 className=' text-xl text-gray-400' /> 45 min
