@@ -1,7 +1,6 @@
 import React from 'react';
 import Logo from '../assets/logo.png';
 import { CiClock1 } from 'react-icons/ci';
-import { CiCalendar } from 'react-icons/ci';
 import { useDate } from './DateContext';
 import { GiEarthAmerica } from 'react-icons/gi';
 
@@ -14,7 +13,7 @@ const FiberyDemo = () => {
           <img src={Logo} alt='logo' className='max-h-[120px] pb-[15px]' />
         </div>
 
-        <div className='flex flex-col  gap-5 border-t justify-center w-[250px] max-md:w-full h-[400px] px-5 max-sm:w-full'>
+        <div className='flex flex-col  gap-5 border-t justify-center w-[250px] max-md:w-full h-[400px] max-sm:h-[250px] max-sm:gap-1 px-5 max-sm:w-full'>
           <h1 className='text-3xl font-semibold max-sm:text-center'>
             Fibery Demo
           </h1>

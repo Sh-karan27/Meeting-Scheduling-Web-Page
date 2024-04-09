@@ -95,7 +95,6 @@ const Calendar = () => {
     ).getDay();
     const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-    // Render weekday names
     const weekdayElements = weekdays.map((day, index) => (
       <div key={index} className='font-bold'>
         {day}
@@ -103,19 +102,15 @@ const Calendar = () => {
     ));
     days.push(weekdayElements);
 
-    // Fill empty slots for the days of previous month
     for (let i = 0; i < firstDayOfMonth; i++) {
       days.push(<div key={`empty-${i}`} className='empty'></div>);
     }
 
-    // Render days of the current month
     for (let i = 1; i <= daysInMonth; i++) {
       days.push(
         <div
           key={i}
-          className={`day ${
-            selectedDate === i ? 'bg-blue-500 text-white rounded-full' : ''
-          }`}
+          className={` ${selectedDate === i ? 'activedate' : 'day'}`}
           onClick={() => handleDateClick(i)}>
           {i}
         </div>
@@ -126,28 +121,20 @@ const Calendar = () => {
   };
 
   function getCurrentISTTime() {
-    // Get current date and time
     const now = new Date();
 
-    // Get UTC time offset for IST (Indian Standard Time) which is UTC+5:30
     const ISTOffset = 5.5;
 
-    // Convert local time to IST by adding the offset
     const ISTTime = new Date(now.getTime() + ISTOffset * 3600 * 1000);
 
-    // Format the time components (hours, minutes, seconds)
     const hours = ISTTime.getHours().toString().padStart(2, '0');
     const minutes = ISTTime.getMinutes().toString().padStart(2, '0');
 
-    // Construct the time string in IST
     const ISTTimeString = `${hours}:${minutes} IST`;
 
-    // Return the IST time string
     return ISTTimeString;
   }
 
-  // Function to render selected date and day
-  // Function to render selected date, day, and month
   const renderSelectedDateAndDay = () => {
     if (selectedDate !== null) {
       const selectedDayIndex = new Date(
@@ -188,7 +175,7 @@ const Calendar = () => {
       <div
         className={` ${hideCalender} w-[25rem]  calendar p-4  border-gray-300  flex flex-col  justify-center items-center gap-5 max-sm:border-none`}>
         <h1 className='font-bold'>Select a Date and Time</h1>
-        <div className='flex justify-between items-center mb-4 w-full'>
+        <div className='flex justify-between max-sm:justify-center max-sm:gap-10 items-center mb-4 w-full'>
           <button onClick={handlePrevMonth} className='btn text-3xl'>
             <IoIosArrowDropleftCircle />
           </button>
@@ -201,7 +188,7 @@ const Calendar = () => {
           </button>
         </div>
         <div
-          className='grid grid-cols-7 gap-7 text-center w-full '
+          className='grid grid-cols-7 gap-7 text-center w-full max-sm:gap-4 max-sm:justify-center  '
           style={{ gridTemplateColumns: 'repeat(7, 30px)' }}>
           {renderCalendar()}
         </div>

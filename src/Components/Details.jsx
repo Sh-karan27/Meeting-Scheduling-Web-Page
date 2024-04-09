@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { emojiData1, emojiData2 } from '../utils/options';
-import { IoIosArrowDropleftCircle } from 'react-icons/io';
-import { useDate } from './DateContext';
+import AlertDialog from './DilogBox';
 
 const Details = () => {
-  const { selectedDateInfo, setSelectedDateInfo } = useDate();
-  const { meeTime, setMeetTime } = useDate();
   const [addGuest, setAddGuset] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -16,6 +15,7 @@ const Details = () => {
     message: '',
     workspace: '',
   });
+
   const handleChange = (e) => {
     const { target } = e;
     const { name, value } = target;
@@ -28,23 +28,18 @@ const Details = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    alert(
-      `Name:${form.name} Email:${form.email} GuestEmail:${form.guestEmail} Workspace:${form.workspace} Message:${form.message} `
-    );
+    setShowDialog(true);
+  };
+  const handleCloseDialog = () => {
+    setShowDialog(false);
     setForm({
       name: '',
       email: '',
       guestEmail: '',
-      workspace: '',
+      option1: '',
+      option2: '',
       message: '',
-    });
-    setMeetTime({
-      selectedTime: '',
-    });
-    setSelectedDateInfo({
-      selectedDate: null,
-      selectedDay: '',
-      selectedMonth: '',
+      workspace: '',
     });
   };
 
@@ -154,6 +149,9 @@ const Details = () => {
             </button>
           </label>
         </form>
+        {showDialog && (
+          <AlertDialog formDetails={form} handleClose={handleCloseDialog} />
+        )}
       </div>
     </section>
   );
